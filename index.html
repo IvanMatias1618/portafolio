@@ -40,14 +40,17 @@
     }
 
     #projects {
-      padding: 2rem;
+      padding: 0.5rem;
       background-color: #f9f9f9;
       border-radius: 12px;
     }
 
+    #info_description {
+      padding: 1rem;
+    }
 
     #skills {
-      padding: 1rem;
+      padding: 0.5 rem;
       background-color: #232323;
       border-radius: 12px;
     }
@@ -79,7 +82,7 @@
       background-color: white;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: 5cap;
+      width: 25cap;
       text-align: center;
       padding: 1rem;
       transition: transform 0.3s ease;
@@ -90,7 +93,7 @@
       flex-direction: column;
       max-height: 100px;
       overflow-y: auto;
-      
+
       column-width: 120px;
       column-gap: 1rem;
       padding-left: 1rem;
@@ -103,8 +106,8 @@
     }
 
     .project-card img {
-      width: 100%;
-      height: 4cap;
+      width: 13cap;
+      height: 9cap;
       object-fit: cover;
       border-radius: 8px;
       margin-bottom: 1rem;
@@ -115,6 +118,8 @@
       margin: 0.5rem 0;
       color: #333;
     }
+
+
 
     .project-card h4 {
       font-size: 1rem;
@@ -141,48 +146,44 @@
       color: antiquewhite;
     }
 
-    h2 {
-      font-size: 2cap;
+    h2,
+    h3,
+    h4 {
+      font-size: 1rem;
     }
 
-    h3 {
-      padding: 1cap;
-      margin: 0.5cap;
-    }
 
     @media (max-width: 768px) {
-  #info_description {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-    padding: 1rem;
-  }
+      #info_description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem;
+      }
 
-  #description h2 {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
+      #description h2 {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
 
-  .photo {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
+      .photo {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
 
-  .circle-img {
-    width: 120px;
-    height: 120px;
-  }
+      .circle-img {
+        width: 120px;
+        height: 120px;
+      }
 
-  .project-card,
-  .skills-card {
-      width: 10cap;
+      .project-card,
+      .skills-card {
+        width: 10cap;
+      }
     }
-}
-
-    
   </style>
   <title>
     Ivan D. Maria -Dev
@@ -277,7 +278,7 @@
           </li>
           <li class="skills-card">
             <section>
-              <h3>  🛠️ DevOps </h3>
+              <h3> 🛠️ DevOps </h3>
               <ul>
                 <li> 🐳 Docker</li>
                 <li> ☁️ AWS </li>
