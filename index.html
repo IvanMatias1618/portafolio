@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <!-- 9. Patrick Hand -->
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <!-- 10. Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+      background-image: linear-gradient(to right, #2c2c2c, #004d4d);
+    }
+
+    p {
+      font-family: 'Patrick Hand', Helvatica, Arial, sans-serif;
+    }
+
+    #photo {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-items: center;
+      padding: 1cap;
+      height: 100%;
+    }
+
+    .circle-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      /* Recorta la imagen si no es cuadrada */
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      /* Opcional: borde decorativo */
+    }
+
+    #projects {
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+
+
+    #skills {
+      padding: 1rem;
+      background-color: #232323;
+    }
+
+    #projects ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+    }
+
+    #skills ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+    }
+
+
+    .project-card,
+    .skills-card {
+      flex-direction: column;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      text-align: center;
+      padding: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .skills-card ul {
+
+      flex-direction: column;
+      max-height: 200px;
+      /* Ajusta según lo que necesites */
+      overflow-y: auto;
+      /* Permite scroll si hay demasiados elementos */
+      column-width: 120px;
+      /* Divide en dos columnas automáticamente */
+      column-gap: 1rem;
+      /* Espacio entre columnas */
+      padding-left: 1rem;
+      /* Para que los ítems no queden pegados al borde */
+    }
+
+
+    .project-card:hover,
+    .skills-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      color: #333;
+    }
+
+    .project-card h4 {
+      font-size: 1rem;
+      color: #666;
+      margin: 0;
+    }
+
+    #info_description,
+    #skills {
+      display: flex;
+      flex-direction: row;
+    }
+
+    #decription,
+    section {
+      padding: 0.5cap;
+      margin: 0.5cap;
+    }
+
+    h2,
+    p {
+      padding: 1cap;
+      margin: 0.5cap;
+      color: antiquewhite;
+    }
+
+    h2 {
+      font-size: 2cap;
+    }
+
+    h3 {
+      padding: 1cap;
+      margin: 0.5cap;
+    }
+  </style>
+  <title>
+    Developer: Ivan D. Maria
+  </title>
+</head>
+
+<body>
+
+  <header>
+  </header>
+
+  <main>
+
+
+    <div id="projects">
+      <ul>
+        <li>
+          <div class="project-card">
+            <img src="./imgs/galeria.jpeg" alt="Galería" />
+            <a href="https://ivanmatias1618.github.io/Mediaweb/">
+              <h3> Galería</h3>
+            </a>
+            <h4>Una colección visual interactiva</h4>
+          </div>
+        </li>
+        <li>
+          <div class="project-card">
+            <img src="./imgs/juego.jpeg" alt="Juego" />
+            <a href="https://ivanmatias1618.github.io/JSGAME" />
+            <h3>Juego</h3></a>
+            <h4>Mini juego web con lógica en JS</h4>
+          </div>
+        </li>
+        <li>
+          <div class="project-card">
+            <img src="./imgs/galeria.jpeg" alt="Inventario" />
+            <h3>Inventario</h3>
+            <h4>Sistema para gestionar productos</h4>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+    <div id="info_skills">
+      <div id="info_description">
+        <div class="photo">
+          <img src="./imgs/yo.jpeg" alt="my perfil picture" class="circle-img" />
+        </div>
+        <div id="description">
+          <h2>Hello! I'm an self-taught full-stack developer with over 3 years of experience, passionate about modular
+            design,
+            UX, and system efficiency.<br>
+            I specialize in building low-coupling architectures and delivering end-to-end solutions — from concept to
+            deployment — <br>
+            with a strong focus on testing, security, and infrastructure, including cost monitoring on platforms like
+            AWS.<br>
+
+            I'm looking to join a team where I can listen, learn, and contribute — not only through code, but through
+            genuine human connection. <br> I believe in growing together, both as developers and as people. </h2>
+          <p>– Ivan D' Maria</p>
+        </div>
+      </div>
+      <div id="skills">
+        <ul>
+          <li class="skills-card">
+            <section>
+              <h3> Languages </h3>
+              <ul>
+                <li> Rust ✨ </li>
+                <li> Js. </li>
+                <li> Typescript </li>
+                <li> Html </li>
+                <li> Css </li>
+                <li> Bash </li>
+                <li> SQL </li>
+              </ul>
+            </section>
+          </li>
+          <li class="skills-card">
+            <section>
+              <h3> FrameWorks </h3>
+              <ul>
+                <li> React </li>
+                <li> SQLite </li>
+                <li> Actix-web </li>
+              </ul>
+            </section>
+          </li>
+          <li class="skills-card">
+            <section>
+              <h3> DevOps </h3>
+              <ul>
+                <li> Docker</li>
+                <li> AWS </li>
+                <li> Git </li>
+                <li> Linux/Win. </li>
+              </ul>
+            </section>
+          </li>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+  </footer>
+
+
+</body>
+
+</html>
