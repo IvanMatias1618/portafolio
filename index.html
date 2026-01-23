@@ -1,304 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
-  <!-- 9. Patrick Hand -->
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
-
-  <!-- 10. Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Montserrat&display=swap" rel="stylesheet">
+  <title>Ivan D. Maria - Dev</title>
   <style>
     body {
+      margin: 0;
       font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-      background-image: linear-gradient(to right, #2c2c2c, #004d4d);
+      background: linear-gradient(to right, #2c2c2c, #004d4d);
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
     }
 
-    p {
-      font-family: 'Patrick Hand', Helvatica, Arial, sans-serif;
+    main {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
     }
 
-    #photo {
+    .card {
+      flex: 0 0 90%; /* ancho 90% */
+      height: 90%;   /* alto 90% */
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      scroll-snap-align: center;
       display: flex;
       flex-direction: column;
-      align-content: center;
-      justify-items: center;
-      padding: 1cap;
-      height: 100%;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 2rem;
+    }
+
+    h3 {
+      margin: 0.5rem 0;
+      font-size: 2rem;
+    }
+
+    h4 {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+    }
+
+    code {
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
     }
 
     .circle-img {
       width: 150px;
       height: 150px;
-      object-fit: cover;
-      /* Recorta la imagen si no es cuadrada */
       border-radius: 50%;
-      border: 2px solid #ccc;
-      /* Opcional: borde decorativo */
-    }
-
-    #projects {
-      padding: 0.5rem;
-      background-color: #f9f9f9;
-      border-radius: 12px;
-    }
-
-    #info_description {
-      padding: 1rem;
-    }
-
-    #skills {
-      padding: 0.5 rem;
-      background-color: #232323;
-      border-radius: 12px;
-    }
-
-    #projects ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      padding: 0;
-      margin: 0;
-      justify-content: center;
-    }
-
-    #skills ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      padding: 0;
-      margin: 0;
-      justify-content: center;
-    }
-
-
-    .project-card,
-    .skills-card {
-      flex-direction: column;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: 25cap;
-      text-align: center;
-      padding: 1rem;
-      transition: transform 0.3s ease;
-    }
-
-    .skills-card ul {
-
-      flex-direction: column;
-      max-height: 100px;
-      overflow-y: auto;
-
-      column-width: 120px;
-      column-gap: 1rem;
-      padding-left: 1rem;
-    }
-
-
-    .project-card:hover,
-    .skills-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .project-card img {
-      width: 13cap;
-      height: 9cap;
       object-fit: cover;
-      border-radius: 8px;
+      border: 2px solid #ccc;
       margin-bottom: 1rem;
     }
 
-    .project-card h3 {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
-      color: #333;
+    /* Botones de navegación */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 1.5rem;
     }
+    #prev { left: 10px; }
+    #next { right: 10px; }
 
-
-
-    .project-card h4 {
-      font-size: 1rem;
-      color: #666;
-      margin: 0;
-    }
-
-    #info_description,
-    #skills {
-      display: flex;
-      flex-direction: row;
-    }
-
-    #decription,
-    section {
-      padding: 0.5cap;
-      margin: 0.5cap;
-    }
-
-    h2,
-    p {
-      padding: 1cap;
-      margin: 0.5cap;
-      color: antiquewhite;
-    }
-
-    h2,
-    h3,
-    h4 {
-      font-size: 1rem;
-    }
-
-
-    @media (max-width: 768px) {
-      #info_description {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
+    @media (max-width:768px){
+      .card {
+        flex: 0 0 95%;
+        height: 90%;
         padding: 1rem;
       }
-
-      #description h2 {
-        font-size: 1rem;
-        line-height: 1.5;
-      }
-
-      .photo {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-      }
-
+      h3 { font-size: 1.5rem; }
+      h4 { font-size: 1rem; }
       .circle-img {
         width: 120px;
         height: 120px;
       }
-
-      .project-card,
-      .skills-card {
-        width: 9cap;
-      }
-
-      .project-card img {
-        width: 6.5cap;
-        height: 6cap;
-      }
     }
   </style>
-  <title>
-    Ivan D. Maria -Dev
-  </title>
 </head>
-
 <body>
-
-  <header>
-  </header>
+  <!-- Botones de navegación -->
+  <button id="prev" class="nav-btn">⟨</button>
+  <button id="next" class="nav-btn">⟩</button>
 
   <main>
+    <!-- Tarjeta Personal primero -->
+    <section class="card" style="background-image:url('./imgs/yo.jpeg');">
+      <img src="./imgs/yo.jpeg" alt="Perfil" class="circle-img">
+      <h3>👋 Hola, soy Ivan D' Maria</h3>
+      <p>Desarrollador full-stack autodidacta con más de 3 años de experiencia.<br>
+      Apasionado por el diseño modular, UX y eficiencia de sistemas.<br>
+      Busco aportar en equipo con código y conexión humana.</p>
+      <p>Github: <a href="https://github.com/IvanMatias1618"><code>IvanMatias1618</code></a></p>
+    </section>
 
+    <!-- Proyecto Inventario -->
+    <section class="card" style="background-image:url('./imgs/inventario.jpeg');">
+      <h3>🧺 Inventory 📦</h3>
+      <h4>Rust + Rusqlite + Actix + React/TS + HTML + CSS</h4>
+      <a href="https://ivanmatias1618.github.io/inventario-front/"><code>Ver Proyecto</code></a><br>
+      <a href="https://github.com/IvanMatias1618/RRR"><code>Check the code</code></a>
+    </section>
 
-    <div id="projects">
-      <ul>
-        <li>
-          <div class="project-card">
-            <img src="./imgs/inventario.jpeg" alt="Inventario" />
-            <a href="https://ivanmatias1618.github.io/inventario-front/">
-              <h3> 🧺 Inventory 📦 </h3>
-            </a>
-            <h4> Api built on rust. and front react.ts <br> to operate consumables </h4>
-            <a href="https://github.com/IvanMatias1618/RRR"> <code> Check the code </code> </a> 
-          </div>
-        </li>
-        <li>
-          <div class="project-card">
-            <img src="./imgs/galeria.jpg" alt="Galería" />
-            <a href="https://ivanmatias1618.github.io/Mediaweb/">
-              <h3> 🖼️ Galery 🖼️ </h3>
-            </a>
-            <h4>an interactive collection of images and poems </h4>
-            <a href="https://github.com/IvanMatias1618/Mediaweb"> <code> Check the code. </code> </a> 
-          </div>
-        </li>
-        <li>
-          <div class="project-card">
-            <img src="./imgs/juego.jpeg" alt="Juego" />
-            <a href="https://ivanmatias1618.github.io/JSGAME" />
-            <h3> 🐷 Game 🎮 </h3></a>
-            <h4> a petit game made on vanilla js using Grid</h4>
-            <a href="https://github.com/IvanMatias1618/JSGAME"><code> Check the code. </code></a>  
-          </div>
-        </li>
+    <!-- Proyecto Galería -->
+    <section class="card" style="background-image:url('./imgs/galeria.jpg');">
+      <h3>🖼️ Gallery 🖼️</h3>
+      <h4>JS + CSS</h4>
+      <a href="https://ivanmatias1618.github.io/Mediaweb/"><code>Ver Proyecto</code></a><br>
+      <a href="https://github.com/IvanMatias1618/Mediaweb"><code>Check the code</code></a>
+    </section>
 
-      </ul>
-    </div>
-
-
-    <div id="info_skills">
-      <div id="info_description">
-        <div class="photo">
-          <img src="./imgs/yo.jpeg" alt="my perfil picture" class="circle-img" />
-        </div>
-        <div id="description">
-          <h2>Hello! I'm an self-taught full-stack developer with over 3 years of experience, passionate about modular
-            design,
-            UX, and system efficiency.<br>
-            I'm looking to join a team where I can listen, learn, and contribute — not only through code, but through
-            genuine human connection. <br> I believe in growing together, both as developers and as people. </h2>
-          <p>– Ivan D' Maria</p><br><p> Github: <a href="https://github.com/IvanMatias1618"><code>IvanMatias1618</code></a> <p>
-        </div>
-      </div>
-      <div id="skills">
-        <ul>
-          <li class="skills-card">
-            <section>
-              <h3> 📜 Languages 📜 </h3>
-              <ul>
-                <li> ⚙️ Rust ⚙️ </li>
-                <li> ⚡️ Js. </li>
-                <li> 🧩 Typescript </li>
-                <li> 🐍 python 🐍 </li>
-                <li> 🧱 Html </li>
-                <li> 🎨 Css </li>
-                <li> 🖥️ Bash </li>
-              </ul>
-            </section>
-          </li>
-          <li class="skills-card">
-            <section>
-              <h3> 🧰 FrameWorks </h3>
-              <ul>
-                <li> ⚛ React </li>
-                <li> 🗃️ SQLite </li>
-                <li> 🚀 Actix-web </li>
-              </ul>
-            </section>
-          </li>
-          <li class="skills-card">
-            <section>
-              <h3> 🛠️ DevOps </h3>
-              <ul>
-                <li> 🐳 Docker</li>
-                <li> ☁️ AWS </li>
-                <li> 🌱 Git </li>
-                <li> 🐧 Linux/Win. </li>
-              </ul>
-            </section>
-          </li>
-      </div>
-    </div>
-
+    <!-- Proyecto Juego -->
+    <section class="card" style="background-image:url('./imgs/juego.jpeg');">
+      <h3>🐷 Game 🎮</h3>
+      <h4>Vanilla JS + CSS (Grid)</h4>
+      <a href="https://ivanmatias1618.github.io/JSGAME"><code>Ver Proyecto</code></a><br>
+      <a href="https://github.com/IvanMatias1618/JSGAME"><code>Check the code</code></a>
+    </section>
   </main>
 
-  <footer>
-  </footer>
-
-
+  <script>
+    const main = document.querySelector("main");
+    document.getElementById("next").onclick = () => 
+      main.scrollBy({left: window.innerWidth, behavior: "smooth"});
+    document.getElementById("prev").onclick = () => 
+      main.scrollBy({left: -window.innerWidth, behavior: "smooth"});
+  </script>
 </body>
-
 </html>
